@@ -1,10 +1,10 @@
 <?php
-    class LoginComponent
+    class TestingComponent
     {
     
-        public $LoginCheckToken;
+        public $TestingCheckToken;
 
-        public function CheckExistLogin()
+        public function CheckExistTesting()
         {
             include('config/mysql.inc');
             require_once "config/mongo.php";
@@ -30,7 +30,7 @@
             exit;
 
             $secratekey = "ApplicationDocKey";
-            $decodeVal = decodeToken($this->LoginCheckToken['hell'], $secratekey);
+            $decodeVal = decodeToken($this->TestingCheckToken['hell'], $secratekey);
 
             $rsdTimeZoneUpdate = mysqli_query($connect_var, $queryTimeZoneUpdate);
             $responseCode = "100";
@@ -61,13 +61,13 @@
 
     }
 
-    function CheckLogin(array $data)
+    function CheckTesting(array $data)
     {
-        $LoginObject = new LoginComponent;
+        $TestingObject = new TestingComponent;
         if ($data) {
-            $LoginObject->LoginCheckToken = $data;
-            $LoginObject->CheckExistLogin();
+            $TestingObject->TestingCheckToken = $data;
+            $TestingObject->CheckExistTesting();
         } else
-            echo json_encode(array("status" => "error On Login ", "message_text" => "Invalid Input Parameters"), JSON_FORCE_OBJECT);
+            echo json_encode(array("status" => "error On Testing ", "message_text" => "Invalid Input Parameters"), JSON_FORCE_OBJECT);
     }
 ?>

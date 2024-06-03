@@ -14,6 +14,6 @@
 	require 'apis/common/jwt_helper.php';
 
 	/****** LOGIN COMPONENET  *****/
-	require 'apis/login/loginRouter.php';
+	require 'apis/testing/testingRouter.php';
 	$f3->run();
 ?>
